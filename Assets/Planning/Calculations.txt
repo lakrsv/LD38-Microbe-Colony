@@ -1,0 +1,4 @@
+Hexagon is 256x222 - 1 Unit is 256
+
+Placement X = 0.75 * Width
+Placement Y = 0.5 * Height

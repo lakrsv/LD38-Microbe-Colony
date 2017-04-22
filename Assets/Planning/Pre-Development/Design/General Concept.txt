@@ -1,0 +1,35 @@
+The game will be a hexagon grid-based game. 
+
+The main genre of the game is strategy simulation.
+
+You control a colony of microbes and need to expand control over the map.
+
+Possible colony types will be based on types of microbes, possible colonies may be:
+	- Bacteria - Basic colony. This is the Player colony. Future might allow for different player colonies but for now, this is out of scope.
+	- Viruses - Not strictly colonies, are wanderers and if they infect members of your colony may replicate quickly and mess you up.
+	- Fungi - Maybe out of scope for Ludum Dare.
+
+You can discover other colonies of microbes. 
+
+The colonies you discover can be hostile or neutral.
+
+You can establish relationship with colonies. The relationships are based on symbiosis, possible relationships may be:
+	- Commensalism - One benefits, the other is not harmed nor helped.
+	- Mutualism - Both benefit from relationships.
+	- Parasitism - One orgasm benefits, host is harmed.
+
+Two modes of play: Freeplay and Win-condition. (Maybe multiple selectable win conditions?)
+
+You should be able to construct your base. Your units are your base, they can evolve through normal morphological stages.
+
+You can upgrade components of the basic unit of your colony. Possible components are based on the microbe composition, and for bacteria may be:
+	- Mictochondria (Power generator)
+	- Flagella (Movement speed)
+	- Cell Wall (Shield)
+	- Cell Membrane (Hull)
+	- Pili (Resource Transfer)
+
+Resources are based on bacterial metabolism for a bacteria colony.
+	Organotrophs - Organic compounds
+	Phototrophs - Sunlight (Out of scope for Player in Ludum Dare)
+	Lithotrophs - Inorganic compounds (Out of scope for Player in Ludum Dare)

@@ -1,0 +1,15 @@
+Run Executable.
+
+Splash screen introduces game.
+
+Simple main menu: Options [Play, Options, Exit]
+	- On Play Click: Options [Freeplay, Campaign, Back]
+		- On Freeplay Click: Start the Game.
+		- On Campaign Click: Present Conditions List. If atleast one Condition is selected: Allow starting game with Start Game Button.
+	- On Options Click: [Audio, Video, Back]
+	- On Exit Click: Exit Game.
+
+On Game Starts:
+	- Colony Starts on X Amount of Hexagons (1, 2, 3, 4)?
+	- Limited Vision, Need to expand to explore.
+	- Simple tooltip based tutorial for introduction.

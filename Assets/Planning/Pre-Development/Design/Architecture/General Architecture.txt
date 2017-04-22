@@ -1,0 +1,9 @@
+Major Classes:
+	- Colony
+	- Microbe
+	- Resource
+
+Major Interfaces:
+	- IGatherable
+	- IUpgradeable
+	- 
