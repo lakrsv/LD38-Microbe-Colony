@@ -2,8 +2,22 @@ Major Classes:
 	- Colony
 	- Microbe
 	- Resource
+	- World
 
 Major Interfaces:
-	- IGatherable
-	- IUpgradeable
-	- 
+	- IGatherable (For Resource)
+	- IUpgradeable (For Microbes and Colonies(?))
+
+Major Class - Colony:
+	- Contains Microbes
+	- Has Relationships
+	- Has Resources
+
+Major Class - Microbe:
+	- Types:
+		- Bacteria
+		- Virus
+		- Fungi
+
+	- Has Structural Components
+	
