@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TileData
 {
-    public Vector2 TilePosition { get; private set; }
+    public Point TileGridPosition { get; private set; }
 
-    public TileData(Vector2 tilePosition)
+    public TileData(Point tileGridPosition)
     {
-        TilePosition = tilePosition;
+        TileGridPosition = tileGridPosition;
     }
 }

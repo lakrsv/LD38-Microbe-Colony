@@ -21,18 +21,17 @@ public class PulseAnimation : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
-    {
-        PlayAnimation();
-    }
-
     public void PlayAnimation()
     {
+        if (_animationRoutine != null)
+            StopAnimation();
+
         _animationRoutine = StartCoroutine(PulseRoutine());
     }
 
     public void StopAnimation()
     {
+        //_timePassed = 0;
         StopCoroutine(_animationRoutine);
     }
 

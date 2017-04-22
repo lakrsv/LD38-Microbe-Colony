@@ -23,5 +23,20 @@ public class HexagonSelect : MonoBehaviour
         }
 
         _pulseAnimation = GetComponent<PulseAnimation>();
+        gameObject.SetActive(false);
+    }
+
+    public void Activate(Vector2 position)
+    {
+        gameObject.SetActive(true);
+
+        gameObject.transform.position = position;
+        _pulseAnimation.PlayAnimation();
+    }
+    public void Deactivate()
+    {
+        _pulseAnimation.StopAnimation();
+
+        gameObject.SetActive(false);
     }
 }

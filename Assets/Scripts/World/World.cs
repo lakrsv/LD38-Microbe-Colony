@@ -31,10 +31,13 @@ public class World : MonoBehaviour {
             for (int k = 0; k < tileGrid.Height; k++)
             {
                 var tileData = tileGrid.TileData[i, k];
-                var tilePosition = tileData.TilePosition;
-                var tile = Instantiate(_tilePrefab, tilePosition, Quaternion.identity);
+                var tileWorldPosition = GridPositionConverter.GridToWorldPosition(tileData.TileGridPosition);
 
+                var tile = Instantiate(_tilePrefab, tileWorldPosition, Quaternion.identity);
                 tile.name = string.Format("Tile: {0},{1}", i, k);
+
+                var tileScript = tile.GetComponent<Tile>();
+                tileScript.Setup(tileData);
             }
         }
     }

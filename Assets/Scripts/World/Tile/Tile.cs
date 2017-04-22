@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour, ISelectable
 {
+    public TileData Data { get; private set; }
+
+    public void Setup(TileData tileData)
+    {
+        Data = tileData;
+    }
+
     public void OnSelect()
     {
         Debug.Log("Selected: "+gameObject.name);
-    }
 
-    // Use this for initialization
-    void Start()
-    {
-
+        HexagonSelect.Instance.Activate(transform.position);
     }
 }
