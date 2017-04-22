@@ -2,3 +2,14 @@ Hexagon is 256x222 - 1 Unit is 256
 
 Placement X = 0.75 * Width
 Placement Y = 0.5 * Height
+
+Middle Tile 
+1,2
+Surrounding Tiles
+0,0
+0,2
+1,0
+1,4
+2,0
+2,2
+

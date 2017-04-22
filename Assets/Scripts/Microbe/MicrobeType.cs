@@ -1,6 +1,6 @@
 ﻿public enum MicrobeType
 {
-    Bacteria,
-    Virus,
-    Fungi
+    Bacteria
+    //Virus,
+    //Fungi
 }
