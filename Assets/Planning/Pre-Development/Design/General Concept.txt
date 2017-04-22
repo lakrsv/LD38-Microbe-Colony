@@ -23,11 +23,10 @@ Two modes of play: Freeplay and Win-condition. (Maybe multiple selectable win co
 You should be able to construct your base. Your units are your base, they can evolve through normal morphological stages.
 
 You can upgrade components of the basic unit of your colony. Possible components are based on the microbe composition, and for bacteria may be:
-	- Mictochondria (Power generator)
-	- Flagella (Movement speed)
-	- Cell Wall (Shield)
-	- Cell Membrane (Hull)
-	- Pili (Resource Transfer)
+	- Mictochondria (Power generator) (Faster Spread Rate & More Resource Consumption, Efficiency goes up)
+	- Flagella (Movement speed) (Exploration & Scouting)
+	- Cell Wall (Combat & Defences)
+	- Pili (Resource Transfer) (Trade Hub & Resource Storage & More Resources Gained Per Node)
 
 Resources are based on bacterial metabolism for a bacteria colony.
 	Organotrophs - Organic compounds
