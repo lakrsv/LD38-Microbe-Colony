@@ -9,6 +9,7 @@ public class PrefabHolder : MonoBehaviour
 
     public GameObject TilePrefab;
     public GameObject CompartmentPrefab;
+    public GameObject ResourceContainerPrefab;
 
     private void Awake()
     {

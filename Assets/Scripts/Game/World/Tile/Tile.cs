@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
 {
     public TileData Data { get; private set; }
     public CompartmentController CompartmentController { get; private set; }
+    public ResourceController ResourceContainer { get; private set; }
 
     private Visibility _visibility = Visibility.Invisible;
     private SpriteRenderer _renderer;
