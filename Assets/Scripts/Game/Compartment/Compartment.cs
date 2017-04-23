@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Compartment : MonoBehaviour, IUpdateable
 {
     public CompartmentType Type { get; protected set; }

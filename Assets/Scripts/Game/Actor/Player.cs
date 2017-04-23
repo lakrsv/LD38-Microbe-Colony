@@ -10,7 +10,6 @@ public class Player : Actor
         //First Tick. Setup Base!
         if(EntityTickUpdater.Instance.CurrentTick == 0)
         {
-
         }
 
         base.OnTick();
@@ -25,8 +24,9 @@ public class Player : Actor
 
         var startTile = TileRegistry.Instance.GetTile(new Point(25, 25));
         colonyScript.ClaimTile(startTile);
-
         _colony = colonyScript;
+
+        startTile.CreateDefaultCompartments();
     }
 
     public override void DestroyActor()

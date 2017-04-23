@@ -7,9 +7,7 @@ public class World : MonoBehaviour
 
 
     [SerializeField]
-    private int _worldWidth = 11, _worldHeight = 11;
-    [SerializeField]
-    private GameObject _tilePrefab;
+    private int _worldWidth, _worldHeight;
 
     private List<Colony> _colonies = new List<Colony>();
 
@@ -47,7 +45,7 @@ public class World : MonoBehaviour
                 var tileData = tileGrid.TileData[i, k];
                 var tileWorldPosition = HexagonGridHelper.GridToWorldPosition(tileData.TileGridPosition);
 
-                var tile = Instantiate(_tilePrefab, tileWorldPosition, Quaternion.identity);
+                var tile = Instantiate(PrefabHolder.Instance.TilePrefab, tileWorldPosition, Quaternion.identity);
                 tile.name = string.Format("Tile: {0},{1}", i, k);
 
                 var tileScript = tile.GetComponent<Tile>();

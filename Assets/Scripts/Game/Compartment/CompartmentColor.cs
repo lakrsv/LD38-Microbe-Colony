@@ -8,13 +8,13 @@ public class CompartmentColor
         switch (type)
         {
             case CompartmentType.Combat:
-                return new Color(0xd3, 0x40, 0x2d);
+                return new Color(0xd3 / 255f, 0x40 / 255f, 0x2d / 255f);
             case CompartmentType.Exploration:
-                return new Color(0xb6, 0x2d, 0xd3);
+                return new Color(0xb6 / 255f, 0x2d / 255f, 0xd3 / 255f);
             case CompartmentType.Power:
-                return new Color(0xd3, 0xc9, 0x2d);
+                return new Color(0xd3 / 255f, 0xc9 / 255f, 0x2d / 255f);
             case CompartmentType.Resource:
-                return new Color(0x2d, 0x5c, 0xd3);
+                return new Color(0x2d / 255f, 0x5c / 255f, 0xd3 / 255f);
             default:
                 throw new ArgumentOutOfRangeException("This compartment type is not implemented");
         }

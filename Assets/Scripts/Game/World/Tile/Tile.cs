@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour, ISelectable, IClaimable
 {
     public TileData Data { get; private set; }
+    public CompartmentController CompartmentController { get; private set; }
 
     private Visibility _visibility = Visibility.Invisible;
     private SpriteRenderer _renderer;
@@ -79,10 +80,27 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
         }
 
         SetTileType(colony);
+        AddCompartmentController();
+
     }
+
     public void Unclaim(Colony colony)
     {
         TileRegistry.Instance.RemoveTileOwner(this, colony);
+    }
+
+    public void CreateDefaultCompartments()
+    {
+        if(CompartmentController == null)
+        {
+            Debug.LogError("This tile doesn't have a compartment controller! Is the tile not claimed?");
+            return;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            CompartmentController.CreateCompartment((CompartmentType)i, (CompartmentPosition)i);
+        }
     }
 
     private void SetTileType(Colony colony)
@@ -95,6 +113,12 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
         }
     }
 
+    private void AddCompartmentController()
+    {
+        var compartmentObj = Instantiate(PrefabHolder.Instance.CompartmentPrefab, transform);
+        CompartmentController = compartmentObj.GetComponent<CompartmentController>();
+    }
+
     public void OnSelect()
     {
         Debug.Log("Selected: " + gameObject.name);
@@ -103,6 +127,6 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
         SetVisibility(Visibility.Visible);
         SetVisibilityOfSurroundingTiles(Visibility.LightFog);
 
-        //HexagonSelect.Instance.Activate(transform.position);
+        HexagonSelect.Instance.Activate(transform.position);
     }
 }
