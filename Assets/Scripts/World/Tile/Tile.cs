@@ -72,6 +72,12 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
     {
         TileRegistry.Instance.SetTileOwner(this, colony);
 
+        if (colony.IsPlayer)
+        {
+            SetVisibility(Visibility.Visible);
+            SetVisibilityOfSurroundingTiles(Visibility.Visible);
+        }
+
         SetTileType(colony);
     }
     public void Unclaim(Colony colony)
@@ -81,12 +87,6 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
 
     private void SetTileType(Colony colony)
     {
-        if (colony.IsPlayer)
-        {
-            SetVisibility(Visibility.Visible);
-            SetVisibilityOfSurroundingTiles(Visibility.LightFog);
-        }
-
         //TODO - Implement setting tile to represent the colony residing here.
         if(colony is BacteriaColony)
         {

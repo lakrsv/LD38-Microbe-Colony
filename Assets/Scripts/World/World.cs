@@ -13,6 +13,9 @@ public class World : MonoBehaviour
 
     private List<Colony> _colonies = new List<Colony>();
 
+    private Player _playerActor;
+    private List<Actor> _npcActors = new List<Actor>();
+
     private void Awake()
     {
         TileRegistry.Reset();
@@ -59,13 +62,8 @@ public class World : MonoBehaviour
 
     private void CreatePlayer()
     {
-        var playerColony = new GameObject();
-        playerColony.name = "Player Colony";
-
-        var colonyScript = playerColony.AddComponent<BacteriaColony>();
-        colonyScript.IsPlayer = true;
-
-        var startTile = TileRegistry.Instance.GetTile(new Point(5, 5));
-        colonyScript.ClaimTile(startTile);
+        var player = new GameObject();
+        _playerActor = player.AddComponent<Player>();
+        _playerActor.CreateActor();
     }
 }

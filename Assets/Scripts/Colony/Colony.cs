@@ -10,18 +10,6 @@ public abstract class Colony : MonoBehaviour
     protected Tile _homeTile;
     protected List<Tile> _controlledTiles = new List<Tile>();
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
     public void ClaimTile(Tile tile)
     {
         if(_controlledTiles.Count == 0)

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 301ee0ae158083d42ac932dfc572bca7
-timeCreated: 1492889825
+timeCreated: 1492937459
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Mitochondria
-    21300002: Cell Wall
-    21300004: Flagella
-    21300006: Pili
+    21300000: Compartment TopLeft
+    21300002: Compartment TopRight
+    21300004: Compartment BottomLeft
+    21300006: Compartment BottomRight
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mitochondria
+      name: Compartment TopLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -111,7 +111,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Cell Wall
+      name: Compartment TopRight
       rect:
         serializedVersion: 2
         x: 256
@@ -124,7 +124,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flagella
+      name: Compartment BottomLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +137,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pili
+      name: Compartment BottomRight
       rect:
         serializedVersion: 2
         x: 256
