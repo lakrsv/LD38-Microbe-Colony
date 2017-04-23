@@ -124,6 +124,12 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
 
     public void OnSelect()
     {
+        if(CompartmentController != null)
+        {
+            CompartmentController.OnSelect();
+            return;
+        }
+
         //Debug Visibility
         SetVisibility(Visibility.Visible);
         SetVisibilityOfSurroundingTiles(Visibility.LightFog);
