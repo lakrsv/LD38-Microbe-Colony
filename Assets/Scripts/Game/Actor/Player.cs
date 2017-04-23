@@ -7,6 +7,12 @@ public class Player : Actor
 {
     public override void OnTick()
     {
+        //First Tick. Setup Base!
+        if(EntityTickUpdater.Instance.CurrentTick == 0)
+        {
+
+        }
+
         base.OnTick();
     }
 

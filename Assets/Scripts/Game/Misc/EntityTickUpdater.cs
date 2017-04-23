@@ -7,6 +7,8 @@ public class EntityTickUpdater : MonoBehaviour
     public static EntityTickUpdater Instance { get { return _instance; } }
     private static EntityTickUpdater _instance;
 
+    public int CurrentTick { get; private set; }
+
     private List<IUpdateable> _activeEntities = new List<IUpdateable>();
     private List<IUpdateable> _addEntities = new List<IUpdateable>();
     private List<IUpdateable> _removeEntities = new List<IUpdateable>();
@@ -91,6 +93,8 @@ public class EntityTickUpdater : MonoBehaviour
             {
                 compartment.OnTick();
             }
+
+            CurrentTick++;
         }
     }
 }

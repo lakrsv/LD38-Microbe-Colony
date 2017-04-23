@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Compartment : MonoBehaviour, IUpdateable
 {
     public CompartmentType Type { get; protected set; }
@@ -10,6 +11,8 @@ public abstract class Compartment : MonoBehaviour, IUpdateable
 
     protected ResourceRequirement _resourceRequirement;
     protected Color _compartmentColor;
+
+    private SpriteRenderer _renderer;
 
     private void Start()
     {
@@ -21,6 +24,10 @@ public abstract class Compartment : MonoBehaviour, IUpdateable
         Type = (CompartmentType)Enum.Parse(typeof(CompartmentType), type);
 
         _resourceRequirement = ResourceRequirement.GetRequirements(Type);
+        _compartmentColor = CompartmentColor.GetCompartmentColor(Type);
+
+        _renderer = GetComponent<SpriteRenderer>();
+        _renderer.color = _compartmentColor;
 
         EntityTickUpdater.Instance.RegisterCompartment(this);
     }
