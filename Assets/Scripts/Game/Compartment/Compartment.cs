@@ -8,6 +8,7 @@ public abstract class Compartment : MonoBehaviour, IUpdateable
     public CompartmentType Type { get; protected set; }
     public int AdjacencyCount { get; protected set; }
 
+    protected ResourceRequirement _resourceRequirement;
     protected Color _compartmentColor;
 
     private void Start()
@@ -18,6 +19,8 @@ public abstract class Compartment : MonoBehaviour, IUpdateable
 
         gameObject.name = compartmentName;
         Type = (CompartmentType)Enum.Parse(typeof(CompartmentType), type);
+
+        _resourceRequirement = ResourceRequirement.GetRequirements(Type);
 
         EntityTickUpdater.Instance.RegisterCompartment(this);
     }
