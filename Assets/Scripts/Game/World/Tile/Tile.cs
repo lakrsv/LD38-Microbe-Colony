@@ -6,8 +6,9 @@ using UnityEngine;
 public class Tile : MonoBehaviour, ISelectable, IClaimable
 {
     public TileData Data { get; private set; }
+
     public CompartmentController CompartmentController { get; private set; }
-    public ResourceController ResourceContainer { get; private set; }
+    public ResourceController ResourceController { get; private set; }
 
     private Visibility _visibility = Visibility.Invisible;
     private SpriteRenderer _renderer;
@@ -44,22 +45,15 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
 
     private void SetVisibilityOfSurroundingTiles(Visibility visibility)
     {
-        var gridPos = Data.TileGridPosition;
-        bool isEven = gridPos.x % 2 == 0;
-        var directions = isEven ? HexagonGridHelper.EvenDirections : HexagonGridHelper.OddDirections;
-
-        for(int i = 0; i < directions.Length; i++)
+        for(int i = 0; i < 6; i++)
         {
-            var direction = directions[i];
-            var neighbourGridPosition = new Point(gridPos.x + direction.x, gridPos.y + direction.y);
-            var neighbour = TileRegistry.Instance.GetTile(neighbourGridPosition);
-
-            if(neighbour != null)
+            var neighbourTile = TileNavigator.GetNeighbourTile(this, (HexagonGridHelper.HexagonDirection)i);
+            if(neighbourTile != null)
             {
-                neighbour.SetVisibility(visibility);
-                if(visibility -1 > Visibility.Invisible)
+                neighbourTile.SetVisibility(visibility);
+                if (visibility - 1 > Visibility.Invisible)
                 {
-                    neighbour.SetVisibilityOfSurroundingTiles(visibility - 1);
+                    neighbourTile.SetVisibilityOfSurroundingTiles(visibility - 1);
                 }
             }
         }
@@ -104,6 +98,14 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
         }
     }
 
+    public void AddResource(ResourceType type, float quantity)
+    {
+        var resourceObj = Instantiate(PrefabHolder.Instance.ResourcePrefab, transform);
+        ResourceController = resourceObj.GetComponent<ResourceController>();
+
+        ResourceController.CreateResource(type, quantity);
+    }
+
     private void SetTileType(Colony colony)
     {
         //TODO - Implement setting tile to represent the colony residing here.
@@ -122,8 +124,6 @@ public class Tile : MonoBehaviour, ISelectable, IClaimable
 
     public void OnSelect()
     {
-        Debug.Log("Selected: " + gameObject.name);
-
         //Debug Visibility
         SetVisibility(Visibility.Visible);
         SetVisibilityOfSurroundingTiles(Visibility.LightFog);

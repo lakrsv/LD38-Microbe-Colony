@@ -20,7 +20,7 @@ public class ResourceController : MonoBehaviour
         }
     }
 
-    public void CreateResource(ResourceType type, float amount)
+    public void CreateResource(ResourceType type, float quantity)
     {
         if(Resource != null)
         {
@@ -28,10 +28,12 @@ public class ResourceController : MonoBehaviour
             return;
         }
 
+        _resourceIcons[type].SetActive(true);
+
         var resourceType = GetResourceType(type);
         var resourceScript = (Resource)gameObject.AddComponent(resourceType);
 
-        resourceScript.SetQuantity(amount);
+        resourceScript.SetQuantity(quantity);
 
         Resource = resourceScript;
     }

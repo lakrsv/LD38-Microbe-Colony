@@ -31,6 +31,7 @@ public class InputManager : MonoBehaviour
                 var selectable = hit.collider.GetComponent<ISelectable>();
                 if (selectable != null)
                 {
+                    Debug.Log("Selected: " + hit.collider.gameObject.name);
                     selectable.OnSelect();
                 }
             }

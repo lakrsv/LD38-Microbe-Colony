@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Compartment : MonoBehaviour, IUpdateable
+public abstract class Compartment : MonoBehaviour, IUpdateable, ISelectable
 {
     public CompartmentType Type { get; protected set; }
     public int AdjacencyCount { get; protected set; }
@@ -38,4 +38,9 @@ public abstract class Compartment : MonoBehaviour, IUpdateable
 
     public abstract bool Upgrade();
     public abstract bool Destroy();
+
+    public void OnSelect()
+    {
+        //Display Info
+    }
 }

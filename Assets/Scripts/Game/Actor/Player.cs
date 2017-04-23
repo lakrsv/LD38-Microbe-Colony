@@ -7,7 +7,7 @@ public class Player : Actor
 {
     public override void OnTick()
     {
-        //First Tick. Setup Base!
+        //First Tick. Example
         if(EntityTickUpdater.Instance.CurrentTick == 0)
         {
         }
@@ -19,14 +19,13 @@ public class Player : Actor
     {
         gameObject.name = "Player Controller";
 
-        var colonyScript = gameObject.AddComponent<BacteriaColony>();
-        colonyScript.IsPlayer = true;
+        _colony = gameObject.AddComponent<BacteriaColony>();
+        _colony.IsPlayer = true;
 
         var startTile = TileRegistry.Instance.GetTile(new Point(25, 25));
-        colonyScript.ClaimTile(startTile);
-        _colony = colonyScript;
 
-        startTile.CreateDefaultCompartments();
+        _colony.ClaimTile(startTile);
+        _colony.SetDefaults();
     }
 
     public override void DestroyActor()

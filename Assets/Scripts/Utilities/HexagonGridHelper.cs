@@ -26,6 +26,16 @@ public static class HexagonGridHelper
         new Point(0, 1)
     };
 
+    public enum HexagonDirection
+    {
+        TopRight,
+        BottomRight,
+        Bottom,
+        BottomLeft,
+        TopLeft,
+        Top
+    }
+
     public static Vector2 GridToWorldPosition(Point gridPosition)
     {
         float tileWidth = 1.0f;

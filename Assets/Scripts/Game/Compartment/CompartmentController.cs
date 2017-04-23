@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompartmentController : MonoBehaviour
+public class CompartmentController : MonoBehaviour, ISelectable
 {
     private Dictionary<CompartmentPosition, GameObject> _compartmentObjects = new Dictionary<CompartmentPosition, GameObject>();
     private Dictionary<GameObject, Compartment> _compartmentScripts = new Dictionary<GameObject, Compartment>();
@@ -18,6 +18,8 @@ public class CompartmentController : MonoBehaviour
         {
             var compartmentObj = myTransform.GetChild(i).gameObject;
             _compartmentObjects.Add((CompartmentPosition)i, compartmentObj);
+
+            compartmentObj.SetActive(false);
         }
     }
 
@@ -30,6 +32,8 @@ public class CompartmentController : MonoBehaviour
             Debug.LogWarning("This object already has a compartment!");
             return false;
         }
+
+        compartmentObj.SetActive(true);
 
         var compartmentType = GetCompartmentType(type);
         var compartmentScript = (Compartment)compartmentObj.AddComponent(compartmentType);
@@ -51,5 +55,10 @@ public class CompartmentController : MonoBehaviour
         var compartmentType = Type.GetType(classname);
 
         return compartmentType;
+    }
+
+    public void OnSelect()
+    {
+        //TODO - Base hub information ?
     }
 }
